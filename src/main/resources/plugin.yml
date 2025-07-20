@@ -1,0 +1,7 @@
+name: BoomFall
+version: 1.1
+main: BoomFall.BoomFallPlugin
+api-version: 1.20
+commands:
+  cosmetics:
+    description: Abre o menu de cosméticos
