@@ -1,12 +1,11 @@
-package BoomFall;
+package PrismFX;
 
 import org.bukkit.plugin.java.JavaPlugin;
-
 import java.util.Objects;
 
-public class BoomFallPlugin extends JavaPlugin {
+public class PrismFXPlugin extends JavaPlugin {
 
-    private static BoomFallPlugin instance;
+    private static PrismFXPlugin instance;
 
     @Override
     public void onEnable() {
@@ -18,9 +17,12 @@ public class BoomFallPlugin extends JavaPlugin {
         // Registrar eventos
         getServer().getPluginManager().registerEvents(new CosmeticsMenu(), this);
         getServer().getPluginManager().registerEvents(new FallParticlesMenu(), this);
+
+        getServer().getPluginManager().registerEvents(new ProjectileParticlesMenu(), this);
+        getServer().getPluginManager().registerEvents(new ProjectileParticles(), this);
     }
 
-    public static BoomFallPlugin getInstance() {
+    public static PrismFXPlugin getInstance() {
         return instance;
     }
 }

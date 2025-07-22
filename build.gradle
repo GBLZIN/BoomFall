@@ -5,6 +5,8 @@ plugins {
 group = 'br.dev.gah.project'
 version = '1.0-SNAPSHOT'
 
+archivesBaseName = 'PrismFX'
+
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
@@ -15,5 +17,5 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
 }

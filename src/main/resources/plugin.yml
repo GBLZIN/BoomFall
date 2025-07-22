@@ -1,6 +1,6 @@
-name: BoomFall
+name: PrismFX
 version: 1.1
-main: BoomFall.BoomFallPlugin
+main: PrismFX.PrismFXPlugin
 api-version: 1.20
 commands:
   cosmetics:

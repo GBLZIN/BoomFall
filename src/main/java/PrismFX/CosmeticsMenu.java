@@ -1,7 +1,8 @@
-package BoomFall;
+package PrismFX;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.EventHandler;
@@ -25,10 +26,15 @@ public class CosmeticsMenu implements Listener {
                 List.of("§8§l▎ §8Cosmético", "§r", "§7Seleciona uma partícula para ser", "§7exibida quando receber dano de queda."));
         menu.setItem(10, queda);
 
+        // Item (Cosmético) de Projétil
+        ItemStack projetil = createItem(Material.TRIDENT, "§aProjétil",
+                List.of("§8§l▎ §8Cosmético", "§r", "§7Seleciona uma partícula para ser", "§7exibida quando arremessar um projétil."));
+        menu.setItem(12, projetil);
+
         // Item (Cosmético) em breve
         ItemStack emBreve = createItem(Material.GRAY_DYE, "§bEm breve...",
                 List.of("§8§l▎ §8Cosmético"));
-        for (int slot : new int[]{12, 14, 16}) {
+        for (int slot : new int[]{14, 16}) {
             menu.setItem(slot, emBreve);
         }
 
@@ -58,14 +64,20 @@ public class CosmeticsMenu implements Listener {
         if (event.getView().getTitle().equals("Cosméticos")) {
             event.setCancelled(true);
 
-            // Redirecionar o jogador para o menu de cosméticos de queda
+            // Redirecionar o jogador para o menu de cosméticos de Queda
             if (event.getSlot() == 10) {
                 FallParticlesMenu.open(player);
             }
 
-            // Voltar ao menu de cosméticos
+            // Redirecionar o jogador para o menu de cosméticos de Projéteis
+            if (event.getSlot() == 12) {
+                ProjectileParticlesMenu.open(player);
+            }
+
+            // Sair do menu de cosméticos
             else if (event.getSlot() == 31) {
                 player.closeInventory();
+                player.playSound(player.getLocation(), Sound.BLOCK_ROOTED_DIRT_BREAK, 1, 1);
             }
         }
     }
